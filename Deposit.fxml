@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.ControllerDeposit" id="depositDialog">
+
+    <content>
+        <GridPane>
+            <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="5">
+                <padding>
+                    <Insets right="10" top="10" bottom="10"/>
+                </padding>
+                <Label text="Amount to deposit: " id="amountDeposit"/>
+                <TextField fx:id="amountDeposit"/>
+            </HBox>
+            <Label text="Details: " id="detailsDeposit" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <HBox alignment="CENTER" GridPane.columnIndex="0" GridPane.rowIndex="2" spacing="5">
+                <padding>
+                    <Insets top="10"/>
+                </padding>
+                <TextArea fx:id="detailsDeposit"/>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" GridPane.rowIndex="3" GridPane.columnIndex="0" spacing="5">
+                <padding>
+                    <Insets right="10" top="20" bottom="10"/>
+                </padding>
+                <Label text="Do you want to proceed with the deposit?"/>
+            </HBox>
+        </GridPane>
+    </content>
+</DialogPane>
+
