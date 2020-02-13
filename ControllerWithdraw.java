@@ -13,7 +13,7 @@ public class Controllerwithdrawal {
 	public TextField amountwithdrawal;
 	
 	@FXML
-    public TextArea detailswithdrawal;
+    	public TextArea detailswithdrawal;
 
 	public void initialize() {
 
@@ -24,13 +24,13 @@ public class Controllerwithdrawal {
 		//Setting transaction details
 		withdrawal.setType("withdrawal");
 		withdrawal.setAccount(account().getAccountNumber());
-		withdrawal.setAmount(amountwithdrawal);
-		withdrawal.setDetails(detailswithdrawal);
+		withdrawal.setAmount(Double.valueOf(amountwithdrawal.getText()));
+		withdrawal.setDetails(detailswithdrawal.getText());
 		//Getting Date
 		LocalDate localDate = java.time.LocalDate.now();
 		String date = new SimpleDateFormat("dd-MM-yyyy").format(localDate);
 		withdrawal.setDate(date);
-        //Saving Transaction
+		//Saving Withdrawal Transaction
 		return Datasource.getInstance.saveTransaction(withdrawal);
 	}
 
