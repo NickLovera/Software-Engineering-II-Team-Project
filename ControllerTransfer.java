@@ -14,7 +14,7 @@ public class ControllerTransfer {
 	@FXML
 	public TextArea detailsTransfer;
 	@FXML
-	public Label receivingAccount;
+	public TextField receivingAccount;
 
 	public void initialize() {
 
@@ -27,9 +27,9 @@ public class ControllerTransfer {
 
 		transfer.setType("Transfer");
 		transfer.setAccount(account().getAccountNumber());
-		transfer.setReceivingAccount(recievingAccount());
-		transfer.setAmount(amountTransfer);
-		transfer.setDetails(detailsTransfer);
+		transfer.setReceivingAccount(receivingAccount.getText());
+		transfer.setAmount(Double.valueOf(amountTransfer.getText()));
+		transfer.setDetails(detailsTransfer.getText());
 		//Getting Date
 		LocalDate localDate = java.time.LocalDate.now();
 		String date = new SimpleDateFormat("dd-MM-yyyy").format(localDate);
