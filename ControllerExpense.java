@@ -23,8 +23,8 @@ public class ControllerExpense {
     	//Setting Transaction details
 		expense.setType("expense");
 		expense.setAccount(account().getAccountNumber());
-		expense.setAmount(amountExpense);
-		expense.setDetails(detailsExpense);
+		expense.setAmount(Double.valueOf(amountExpense.getText()));
+		expense.setDetails(detailsExpense.getText());
 		//Getting Date
 		LocalDate localDate = java.time.LocalDate.now();
 		String date = new SimpleDateFormat("dd-MM-yyyy").format(localDate);
