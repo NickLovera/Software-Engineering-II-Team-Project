@@ -14,7 +14,7 @@ public class ControllerTransfer {
 	@FXML
 	public TextArea detailsTransfer;
 	@FXML
-	public Label receivingAccount
+	public Label receivingAccount;
 
 	public void initialize() {
 
