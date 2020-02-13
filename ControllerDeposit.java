@@ -24,13 +24,13 @@ public class ControllerDeposit {
 		//Setting transaction details
 		deposit.setType("Deposit");
 		deposit.setAccount(account().getAccountNumber());
-		deposit.setAmount(amountDeposit);
-		deposit.setDetails(detailsDeposit);
+		deposit.setAmount(Double.valueOf(amountDeposit.getText()));
+		deposit.setDetails(detailsDeposit.getText());
 		//Getting Date
 		LocalDate localDate = java.time.LocalDate.now();
 		String date = new SimpleDateFormat("dd-MM-yyyy").format(localDate);
 		deposit.setDate(date);
-
+		//Saving deposit transaction
 		return Datasource.getInstance.saveTransaction(deposit);
 	}
 
