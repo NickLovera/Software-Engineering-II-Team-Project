@@ -37,8 +37,8 @@ public class ControllerStatement {
     public void getStatement()
     {
     	String accountNum = account().getAccountNumber();
-    	String pullMonth = monthComboBox.getText();
-    	String pullYear = yearComboBox.getText();
+    	String pullMonth = monthComboBox.getPromptText();
+    	String pullYear = yearComboBox.getPromptText();
     	String userHome = System.getProperty("user.home"); //Pulls the users home directory dynamically for file storage
     	String outputFolder = userHome + File.separator + "statements"; //Creates a folder named "statements" in the users home directory
     	File folder = new File(outputFolder);
