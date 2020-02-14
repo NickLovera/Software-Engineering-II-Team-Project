@@ -1,41 +1,60 @@
 package sample;
 
-import java.sql.Date;
+import javafx.fxml.FXML;
+import javafx.scene.AccessibleAction;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import project.Account;
+import project.Transaction;
+import sample.data.Datasource;
+
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 
 public class ControllerDeposit {
 
-	@FXML
-	public TextField amountDeposit;
-	
-	@FXML
-    public TextArea detailsDeposit;
+    @FXML
+    private TextField amountDeposit;
+    @FXML
+    private TextArea detailsDeposit;
 
-	public void initialize() {
+	//Getting current user's account
+    private Account account(){
+        Datasource.getInstance().queryAccount();
+        return Datasource.getInstance().account;
+    }
 
-	}
+    public void initialize(){
 
-	public boolean deposit(){
-		Transaction deposit = new Transaction();
-		//Setting transaction details
-		deposit.setType("Deposit");
-		deposit.setAccount(account().getAccountNumber());
-		deposit.setAmount(Double.valueOf(amountDeposit.getText()));
-		deposit.setDetails(detailsDeposit.getText());
-		//Getting Date
-		LocalDate localDate = java.time.LocalDate.now();
-		String date = new SimpleDateFormat("dd-MM-yyyy").format(localDate);
-		deposit.setDate(date);
-		//Saving deposit transaction
-		return Datasource.getInstance.saveTransaction(deposit);
-	}
+    }
+
+    public boolean checkErrors(){
+        return true;
+    }
+
+    public boolean deposit(){
+        Transaction deposit = new Transaction();
+        //Setting transaction details
+        deposit.setType("Deposit");
+        deposit.setAccount(account().getAccountNumber());
+        deposit.setAmount(Double.parseDouble(amountDeposit.getText()));
+        deposit.setDetails(detailsDeposit.getText());
+        //Getting Date
+        Date localDate = Calendar.getInstance().getTime();
+        String date = new SimpleDateFormat("dd-MM-yyyy").format(localDate);
+        deposit.setDate(date);
+        //Saving deposit transaction
+        return Datasource.getInstance().saveTransaction(deposit);
+
+    }
 
 
-	private Account account(){
-		return Datasource.getInstance.account();
-	}
+
+
+
+
+
 }
